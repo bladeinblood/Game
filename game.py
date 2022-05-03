@@ -1,10 +1,11 @@
 import socket
 import random
+import os
 
 print('Hello, in this game you will hack')
 
 random_open_ports = random.choice(ports)
-ports = ['Port 80\n', 'Port 70\n', 'Port 52\n', 'Port 28\n']
+ports = ['Port 80\n', 'Port 22\n', 'Port 52\n', 'Port 28\n']
 
 process = 1
 
@@ -33,17 +34,30 @@ if first_command == 'port':
   if hack_port == 'Port 80':
     print('It is not possible to hack a computer using this port')
   
-  if hack_port == 'Port 70':
+  if hack_port == 'Port 22':
     print('WOHO HACKED')
   
   if hack_port == 'Port 52':
     print('It is not possible to hack a computer using this port')
     
   if hack_port == 'Port 28':
-    print('WOHO HACKED')
+    print('It is not possible to hack a computer using this port')
     
-print('oki, can you delete system? Yes. Type delete_system for delete files')
+print('oki, can you delete system? Yes. Type delete_system for delete files, or.... GO TO FILES, ahahhaahhah, for files go file_check')
 command()
+
+if first_command == 'file_check':
+  with open('chatlog.txt', 'w') as file:
+    file.write('[SNOWLORD] Hello streamer\n')
+    file.write('[SNOWLORD] How are you?\n')
+    file.write('[STREAMER] Fine... wbu?\n')
+    file.write('[SNOWLORD] Me fine too\n')
+    file.write('[SNOWLORD] Ohhh, sorry but i have to exit, bye\n')
+    file.write('[STREAMER] Bye, Snowlord\n')
+    
+    lines = f.read()
+    
+  print(lines)
 
 if first_command == 'delete_system':
   print('deleted process...')
