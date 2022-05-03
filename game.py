@@ -4,25 +4,24 @@ import os
 
 print('Hello, in this game you will hack')
 
-random_open_ports = random.choice(ports)
 ports = ['Port 80\n', 'Port 22\n', 'Port 52\n', 'Port 28\n']
+random_open_ports = random.choice(ports)
 
 process = 1
 
-def command():
-  first_command = input('')
+first_command = input('')
 
 if first_command == 'help':
   print('Hah, first command a ip')
-  command()
+  first_command = input('')
   
 if first_command == 'ip':
-  hostname = socket. gethostname()
-  local_ip = socket. gethostbyname(hostname)
+  hostname = socket.gethostname()
+  local_ip = socket.gethostbyname(hostname)
   print(local_ip)
 
 print('Nice, type port')
-command()
+first_command = input('')
 
 if first_command == 'port':
   print(ports)
@@ -44,25 +43,32 @@ if first_command == 'port':
     print('It is not possible to hack a computer using this port')
     
 print('oki, can you delete system? Yes. Type delete_system for delete files, or.... GO TO FILES, ahahhaahhah, for files go file_check')
-command()
+first_command = input('')
 
 if first_command == 'file_check':
-  with open('chatlog.txt', 'w') as file:
-    file.write('[SNOWLORD] Hello streamer\n')
-    file.write('[SNOWLORD] How are you?\n')
-    file.write('[STREAMER] Fine... wbu?\n')
-    file.write('[SNOWLORD] Me fine too\n')
-    file.write('[SNOWLORD] Ohhh, sorry but i have to exit, bye\n')
-    file.write('[STREAMER] Bye, Snowlord\n')
-    
-    lines = f.read()
+  with open('chatlog.txt', 'r') as file:
+    lines = file.read()
+
+  with open('logs.txt', 'w') as file:
+    hostname = socket.gethostname()
+    local_ip = socket.gethostbyname(hostname)
+    file.write(f'File Cheks, ip - {local_ip}')
     
   print(lines)
+  print('wow... delete logs please) logs_delete, type this 2, oki?')
+  first_command = input('')
 
 if first_command == 'delete_system':
   print('deleted process...')
   while process < 101:
     print(process)
     process += 1
+
+
+first_command = input('')
+
+if first_command == 'logs_delete':
+  os.remove('logs.txt')
+  first_command = input('')
   
  
